@@ -26,7 +26,7 @@ class SessionController extends Controller
 
         session()->regenerate();
 
-        return redirect('/')->with('success', 'Welcome Back!');
+        return redirect('/dashboard')->with('success', 'Welcome Back!');
     }
 
     public function destroy()
@@ -34,5 +34,10 @@ class SessionController extends Controller
         auth()->logout();
 
         return redirect('/')->with('success', 'Goodbye!');
+    }
+
+    public function dashboardView()
+    {
+        return view('admin.backoffice');
     }
 }
